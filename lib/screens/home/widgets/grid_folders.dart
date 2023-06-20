@@ -11,8 +11,10 @@ class GridFolders extends StatelessWidget {
   const GridFolders({
     super.key,
     required this.controller,
+    this.color,
   });
   final ScrollController controller;
+  final Color? color;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -26,59 +28,80 @@ class GridFolders extends StatelessWidget {
               crossAxisSpacing: 16.sp),
           itemBuilder: (context, index) {
             final folderItem = folders[index];
-            return Container(
-              padding: EdgeInsets.symmetric(horizontal: 14.sp, vertical: 10.sp),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16.r),
-                boxShadow: [
-                  // BoxShadow(
-                  //     color: AppColors.shadowColor,
-                  //     blurRadius: 4.sp,
-                  //     blurStyle: BlurStyle.normal,
-                  //     offset: Offset(0, 4.sp))
-                ],
-                color: folderItem.color.withOpacity(.16),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: ListTile(
-                      contentPadding: EdgeInsets.zero,
-                      leading: SvgPicture.asset(folderItem.folderIcon),
-                      trailing: IconButton(
-                        onPressed: () {},
-                        icon: SvgPicture.asset(
-                          AppAssets.options,
-                          color: folderItem.color,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Text(
-                      folderItem.folderName,
-                      style: TextStyle(
-                          overflow: TextOverflow.ellipsis,
-                          color: folderItem.color,
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Expanded(
-                    child: Text(
-                      folderItem.folderCreatedAt,
-                      style: TextStyle(
-                        color: folderItem.color,
-                        fontSize: 12.sp,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+            return GridContainer(
+              folderItem: folderItem,
+              color: color,
             );
           }),
+    );
+  }
+}
+
+class GridContainer extends StatelessWidget {
+  const GridContainer({
+    super.key,
+    required this.folderItem,
+    this.color,
+  });
+
+  final Folders folderItem;
+  final Color? color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 14.sp, vertical: 10.sp),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16.r),
+        boxShadow: [
+          // BoxShadow(
+          //     color: AppColors.shadowColor,
+          //     blurRadius: 4.sp,
+          //     blurStyle: BlurStyle.normal,
+          //     offset: Offset(0, 4.sp))
+        ],
+        color: color != null
+            ? color!.withOpacity(.16)
+            : folderItem.color.withOpacity(.16),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            flex: 2,
+            child: ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading: SvgPicture.asset(folderItem.folderIcon),
+              trailing: IconButton(
+                onPressed: () {},
+                icon: SvgPicture.asset(
+                  AppAssets.options,
+                  color: color ?? folderItem.color,
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Text(
+              folderItem.folderName,
+              style: TextStyle(
+                  overflow: TextOverflow.ellipsis,
+                  color: color ?? folderItem.color,
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+          Expanded(
+            child: Text(
+              folderItem.folderCreatedAt,
+              style: TextStyle(
+                color: color ?? folderItem.color,
+                fontSize: 12.sp,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

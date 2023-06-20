@@ -4,6 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:g_drive/core/utils/app_strings.dart';
 import 'package:g_drive/core/utils/app_assets.dart';
 import 'package:g_drive/core/utils/app_colors.dart';
+import 'package:g_drive/screens/home/home_screen.dart';
+import 'package:g_drive/screens/storage_details/storage_details_screen.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class YourFreeStorage extends StatelessWidget {
@@ -11,83 +14,95 @@ class YourFreeStorage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          margin: EdgeInsets.all(14.sp),
-          padding: EdgeInsets.symmetric(horizontal: 20.sp, vertical: 26.sp),
-          decoration: BoxDecoration(
-            color: AppColors.blue,
-            borderRadius: BorderRadius.circular(26.r),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          PageTransition(
+            child: StorageDetailsScreen(),
+            type: PageTransitionType.bottomToTop,
+            alignment: Alignment.center,
           ),
-          child: Column(
-            children: [
-              ListTile(
-                leading: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.withe,
-                    borderRadius: BorderRadius.circular(12.r),
-                  ),
-                  padding: EdgeInsets.all(4.sp),
-                  child: Image.asset(AppAssets.icon),
-                ),
-                title: Text(
-                  AppStrings.freeStorage,
-                  style: TextStyle(
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.withe),
-                ),
-                subtitle: Text.rich(TextSpan(children: [
-                  TextSpan(
-                    text: '7,5 Gb / ',
-                    style: TextStyle(fontSize: 16.sp, color: AppColors.withe),
-                  ),
-                  TextSpan(
-                    text: '15 Gb',
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      color: AppColors.withe.withOpacity(.6),
-                    ),
-                  ),
-                ])),
-              ),
-              SizedBox(
-                height: 20.sp,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.sp),
-                child: LinearPercentIndicator(
-                  lineHeight: 8.sp,
-                  barRadius: Radius.circular(20.r),
-                  backgroundColor: AppColors.blue2,
-                  percent: .5,
-                  progressColor: AppColors.withe,
-                ),
-              )
-            ],
-          ),
-        ),
-        Positioned(
-          top: 0,
-          right: 0,
-          child: Container(
+        );
+      },
+      child: Stack(
+        children: [
+          Container(
             margin: EdgeInsets.all(14.sp),
-            padding: EdgeInsets.symmetric(horizontal: 20.sp, vertical: 20.sp),
+            padding: EdgeInsets.symmetric(horizontal: 20.sp, vertical: 26.sp),
             decoration: BoxDecoration(
-              color: AppColors.blue2,
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(26.r),
-                bottomLeft: Radius.circular(26.r),
-              ),
+              color: AppColors.blue,
+              borderRadius: BorderRadius.circular(26.r),
             ),
-            child: Icon(
-              Icons.arrow_forward_ios,
-              color: AppColors.withe,
+            child: Column(
+              children: [
+                ListTile(
+                  leading: Container(
+                    decoration: BoxDecoration(
+                      color: AppColors.withe,
+                      borderRadius: BorderRadius.circular(12.r),
+                    ),
+                    padding: EdgeInsets.all(4.sp),
+                    child: Image.asset(AppAssets.icon),
+                  ),
+                  title: Text(
+                    AppStrings.freeStorage,
+                    style: TextStyle(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.withe),
+                  ),
+                  subtitle: Text.rich(TextSpan(children: [
+                    TextSpan(
+                      text: '7,5 Gb / ',
+                      style: TextStyle(fontSize: 16.sp, color: AppColors.withe),
+                    ),
+                    TextSpan(
+                      text: '15 Gb',
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        color: AppColors.withe.withOpacity(.6),
+                      ),
+                    ),
+                  ])),
+                ),
+                SizedBox(
+                  height: 20.sp,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.sp),
+                  child: LinearPercentIndicator(
+                    lineHeight: 8.sp,
+                    barRadius: Radius.circular(20.r),
+                    backgroundColor: AppColors.blue2,
+                    percent: .5,
+                    progressColor: AppColors.withe,
+                  ),
+                )
+              ],
             ),
           ),
-        )
-      ],
+          Positioned(
+            top: 0,
+            right: 0,
+            child: Container(
+              margin: EdgeInsets.all(14.sp),
+              padding: EdgeInsets.symmetric(horizontal: 20.sp, vertical: 20.sp),
+              decoration: BoxDecoration(
+                color: AppColors.blue2,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(26.r),
+                  bottomLeft: Radius.circular(26.r),
+                ),
+              ),
+              child: Icon(
+                Icons.arrow_forward_ios,
+                color: AppColors.withe,
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
