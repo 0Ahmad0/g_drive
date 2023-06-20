@@ -16,4 +16,7 @@ class AppColors {
   static const green2 = Color(0xff228955);
   static const red = Color(0xffF35555);
   static const red2 = Color(0xffAB3F3F);
+
+  ///
+  static final shadowColor = Color(0xff000000).withOpacity(.15);
 }
