@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:g_drive/core/app_strings.dart';
+import 'package:g_drive/core/utils/app_strings.dart';
 import 'package:g_drive/core/utils/app_assets.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {

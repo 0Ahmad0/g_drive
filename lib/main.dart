@@ -25,7 +25,7 @@ class GDriveApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: AppTheme.appTheme,
-            home: const HomeScreen(),
+            home: HomeScreen(),
           );
         });
   }

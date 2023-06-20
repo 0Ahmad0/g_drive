@@ -22,4 +22,7 @@ class AppAssets {
   static const documents = '$path/documents.svg';
   static const star = '$path/star.svg';
   static const recent = '$path/recent.svg';
+  static const folder3 = '$path/folder3.svg';
+  static const folder4 = '$path/folder4.svg';
+  static const folder5 = '$path/folder5.svg';
 }

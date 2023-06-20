@@ -15,7 +15,6 @@ dependencies:
   cupertino_icons: ^1.0.2
   filesize: ^2.0.1
   flutter_svg: ^2.0.5
-  flutter_staggered_animations: ^1.1.1
   flutter_zoom_drawer: ^3.1.1
   google_fonts: ^4.0.4
   fl_chart: ^0.62.0

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:g_drive/core/app_strings.dart';
+import 'package:g_drive/core/utils/app_strings.dart';
 import 'package:g_drive/core/utils/app_assets.dart';
 import 'package:g_drive/core/utils/app_colors.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -14,6 +14,7 @@ class YourFreeStorage extends StatelessWidget {
     return Stack(
       children: [
         Container(
+          margin: EdgeInsets.all(14.sp),
           padding: EdgeInsets.symmetric(horizontal: 20.sp, vertical: 26.sp),
           decoration: BoxDecoration(
             color: AppColors.blue,
@@ -57,7 +58,7 @@ class YourFreeStorage extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.sp),
                 child: LinearPercentIndicator(
-                  lineHeight: 8.h,
+                  lineHeight: 8.sp,
                   barRadius: Radius.circular(20.r),
                   backgroundColor: AppColors.blue2,
                   percent: .5,
@@ -71,7 +72,8 @@ class YourFreeStorage extends StatelessWidget {
           top: 0,
           right: 0,
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 20.sp, vertical: 16.sp),
+            margin: EdgeInsets.all(14.sp),
+            padding: EdgeInsets.symmetric(horizontal: 20.sp, vertical: 20.sp),
             decoration: BoxDecoration(
               color: AppColors.blue2,
               borderRadius: BorderRadius.only(
