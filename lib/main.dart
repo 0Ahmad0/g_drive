@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:g_drive/screens/folder_details/folder_details_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:oktoast/oktoast.dart';
 import '/screens/home/home_screen.dart';
@@ -28,7 +27,7 @@ class GDriveApp extends StatelessWidget {
             child: MaterialApp(
               debugShowCheckedModeBanner: false,
               theme: AppTheme.appTheme,
-              home: FolderDetailsScreen(),
+              home: HomeScreen(),
             ),
           );
         });

@@ -24,6 +24,34 @@ dependencies:
   percent_indicator: ^4.2.3
   animate_do: ^3.0.2
   oktoast: ^3.3.1
+  eva_icons_flutter: ^3.1.0
+  get: ^4.6.5
+  google_sign_in: ^6.1.4
+  firebase_core: ^2.14.0
+  cloud_firestore: ^4.8.1
+  firebase_storage: ^11.2.3
+  mime: ^1.0.4
+  file_picker: ^5.3.1
+  path_provider: ^2.0.15
+  uuid: ^3.0.7
+  flutter_image_compress: ^2.0.3
+  flutter_ffmpeg: ^0.4.2
+  video_compress: ^3.1.2
+  url_launcher: ^6.1.11
+  audioplayers: ^4.1.0
+  chewie: ^1.0.0
+  permission_handler: ^10.3.0
+  video_player: ^2.6.1
+  flutter_downloader: ^1.10.4
+
+
+
+
+
+
+
+
+
 
 
 dev_dependencies:
